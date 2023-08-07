@@ -1,0 +1,9 @@
+function on_message(self, message_id, message, sender)
+	if message_id == hash("trigger_response") and message.enter then
+		sound.play("#explosion")
+		msg.post("interface#main", "hello")
+		sprite.play_flipbook("#sprite", "bomber_ship_destruction", function()
+			go.delete()
+		end)
+	end
+end
